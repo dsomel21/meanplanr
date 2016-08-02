@@ -10,7 +10,7 @@ import ThingsReducer from './things';
 
 /* Just example an for now */
 const rootReducer = combineReducers({
-  thing : ThingsReducer
+  things : ThingsReducer
 });
 
 export default rootReducer;

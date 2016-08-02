@@ -6,15 +6,26 @@ import { addThing } from '../actions/index';
 class ThingIndex extends Component {
 	
 	onInputChange(e){
-		debugger;
 		this.props.addThing(e.target.value);
+	}
+
+	renderThing(){
+		return this.props.things.map((thing) => {
+			return (
+				<li className="list-group-item">
+					hi
+				</li>
+			)
+		})
 	}
 
 	render() {
 
 		return (
-			<input onChange={this.onInputChange.bind(this)}/>
-			<div>{this.props.}</div>
+			<div>
+				<input onChange={this.onInputChange.bind(this)}/>
+				{this.renderThing()}
+			</div>
 		)
 	}
 }
@@ -23,4 +34,10 @@ class ThingIndex extends Component {
 // 	return bindActionCreators({ addThing }, dispatch);
 // };
 
-export default connect(null, { addThing })(ThingIndex);
+function mapStateToProps(state){
+	return {
+		thing: state.things.thing
+	}
+}
+
+export default connect(mapStateToProps, { addThing })(ThingIndex);
