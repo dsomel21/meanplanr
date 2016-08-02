@@ -4,27 +4,44 @@ import { bindActionCreators } from 'redux';
 import { addThing } from '../actions/index';
 
 class ThingIndex extends Component {
+
+	constructor(props) {
+		super(props);
+		this.state = {
+			search_fuck: ''
+		};
+	}
 	
 	onInputChange(e){
-		this.props.addThing(e.target.value);
+		this.setState({
+			search_fuck : e.target.value
+		});
+	}
+
+	onSearchSubmit(e){
+		e.preventDefault();
+		this.props.addThing(this.state.search_fuck);
+		// this.setState({ search : '' })
+		{this.renderThing()}
 	}
 
 	renderThing(){
-		return this.props.things.map((thing) => {
-			return (
-				<li className="list-group-item">
-					hi
-				</li>
-			)
-		})
+		debugger;
+		// return this.props.things.map((x) => {
+		// 	return (
+		// 		<li className="list-group-item">
+		// 			hi
+		// 		</li>
+		// 	)
+		// })
 	}
 
 	render() {
 
 		return (
 			<div>
-				<input onChange={this.onInputChange.bind(this)}/>
-				{this.renderThing()}
+				<input value={this.state.search_fuck} onChange={this.onInputChange.bind(this)} />
+				<button onClick={this.onSearchSubmit.bind(this)} type="button" className="btn btn-primary">Search</button>
 			</div>
 		)
 	}
@@ -36,7 +53,7 @@ class ThingIndex extends Component {
 
 function mapStateToProps(state){
 	return {
-		thing: state.things.thing
+		things: state.things.thing
 	}
 }
 
