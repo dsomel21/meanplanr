@@ -3,7 +3,10 @@ import React, { Component } from 'react';
 export default class App extends Component {
   render() {
     return (
-      <div>YEEZY YEEZY</div>
+    	/* Question: How does this have access to this.props.children? */
+      <div>
+      	{this.props.children}
+      </div>
     );
   }
 }
