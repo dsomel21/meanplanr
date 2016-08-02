@@ -1,5 +1,5 @@
 export const ADD_THING = 'ADD_THING';
-export const GET_FOOD = 'GET_FOOD';
+// export const GET_FOOD = 'GET_FOOD';
 
 export function addThing(thing){
 	return {
@@ -8,9 +8,9 @@ export function addThing(thing){
 	}
 };
 
-export function getFood(inputFood){
-	return {
-		type: GET_FOOD,
-		payload: inputFood
-	}
-}
+// export function getFood(inputFood){
+// 	return {
+// 		type: GET_FOOD,
+// 		payload: inputFood
+// 	}
+// }

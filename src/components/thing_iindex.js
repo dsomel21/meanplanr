@@ -27,14 +27,17 @@ class ThingIndex extends Component {
 	}
 
 	renderThing(){
-		debugger;
-		return this.props.things.map((x) => {
-			return (
-				<li className="list-group-item">
-					hi
-				</li>
-			)
-		})
+		// debugger;
+		if (this.props.things){
+			console.log("HEEEEEEEEEEEEEERE")
+		}
+		// return this.props.things.map((x) => {
+		// 	return (
+		// 		<li className="list-group-item">
+		// 			hi
+		// 		</li>
+		// 	)
+		// })
 	}
 
 	render() {
@@ -47,14 +50,14 @@ class ThingIndex extends Component {
 	}
 }
 
-function mapDispatchToProps(dispatch){
-	return bindActionCreators({ addThing }, dispatch);
-};
+// function mapDispatchToProps(dispatch){
+// 	return bindActionCreators({ addThing }, dispatch);
+// };
 
 function mapStateToProps(state){
 	return {
-		things: state.things.thing
+		things: state.things
 	}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ThingIndex);
+export default connect(mapStateToProps, { addThing })(ThingIndex);
