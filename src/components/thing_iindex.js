@@ -8,48 +8,48 @@ class ThingIndex extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			search_fuck: ''
+			search: ''
 		};
 	}
 	
 	onInputChange(e){
 		this.setState({
-			search_fuck : e.target.value
+			search : e.target.value
 		});
 	}
 
 	onSearchSubmit(e){
 		e.preventDefault();
-		this.props.addThing(this.state.search_fuck);
-		// this.setState({ search : '' })
+		this.props.addThing(this.state.search);
+		this.setState({ search : '' })
+		// debugger;
 		{this.renderThing()}
 	}
 
 	renderThing(){
 		debugger;
-		// return this.props.things.map((x) => {
-		// 	return (
-		// 		<li className="list-group-item">
-		// 			hi
-		// 		</li>
-		// 	)
-		// })
+		return this.props.things.map((x) => {
+			return (
+				<li className="list-group-item">
+					hi
+				</li>
+			)
+		})
 	}
 
 	render() {
-
 		return (
 			<div>
-				<input value={this.state.search_fuck} onChange={this.onInputChange.bind(this)} />
+				<input value={this.state.search} onChange={this.onInputChange.bind(this)} />
 				<button onClick={this.onSearchSubmit.bind(this)} type="button" className="btn btn-primary">Search</button>
 			</div>
 		)
 	}
 }
 
-// function mapDispatchToProps(dispatch){
-// 	return bindActionCreators({ addThing }, dispatch);
-// };
+function mapDispatchToProps(dispatch){
+	return bindActionCreators({ addThing }, dispatch);
+};
 
 function mapStateToProps(state){
 	return {
@@ -57,4 +57,4 @@ function mapStateToProps(state){
 	}
 }
 
-export default connect(mapStateToProps, { addThing })(ThingIndex);
+export default connect(mapStateToProps, mapDispatchToProps)(ThingIndex);
