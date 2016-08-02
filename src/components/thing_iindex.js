@@ -4,15 +4,23 @@ import { bindActionCreators } from 'redux';
 import { addThing } from '../actions/index';
 
 class ThingIndex extends Component {
-	render(){
+	
+	onInputChange(e){
+		debugger;
+		this.props.addThing(e.target.value);
+	}
+
+	render() {
+
 		return (
-			<div>HI</div>
+			<input onChange={this.onInputChange.bind(this)}/>
+			<div>{this.props.}</div>
 		)
 	}
 }
 
-function mapDispatchToProps(dispatch){
-	return bindActionCreators({ addThing }, dispatch);
-};
+// function mapDispatchToProps(dispatch){
+// 	return bindActionCreators({ addThing }, dispatch);
+// };
 
-export default connect(null, mapDispatchToProps)(ThingIndex);
+export default connect(null, { addThing })(ThingIndex);
