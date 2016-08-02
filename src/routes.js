@@ -1,11 +1,13 @@
 import React from 'react';
-import { Route } from 'react-router';
+import { Route, IndexRoute } from 'react-router';
 /* We need App to be in our outermost route, because it renders children */
 import App from './components/app';
-import Thing from './components/thing_iindex';
+import ContainerThingy from './containers/thing_iindex';
+import Thingy from './components/test_thing_page';
 
 export default (
 	<Route path="/" component={App}>
-		<Route path="/test" component={Thing} />
+		<Route path="/test" component={ContainerThingy} />
+		<IndexRoute component={Thingy} />
 	</Route>
 )

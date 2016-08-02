@@ -18,26 +18,19 @@ class ThingIndex extends Component {
 		});
 	}
 
+
+	testThing(){
+		debugger;
+		if (this.props.things.thing){
+			console.log(this.props.things.thing);
+		}
+	}
+
 	onSearchSubmit(e){
 		e.preventDefault();
 		this.props.addThing(this.state.search);
 		this.setState({ search : '' })
-		// debugger;
-		{this.renderThing()}
-	}
-
-	renderThing(){
-		// debugger;
-		if (this.props.things){
-			console.log("HEEEEEEEEEEEEEERE")
-		}
-		// return this.props.things.map((x) => {
-		// 	return (
-		// 		<li className="list-group-item">
-		// 			hi
-		// 		</li>
-		// 	)
-		// })
+		{this.testThing()}
 	}
 
 	render() {
@@ -54,10 +47,10 @@ class ThingIndex extends Component {
 // 	return bindActionCreators({ addThing }, dispatch);
 // };
 
-function mapStateToProps(state){
-	return {
-		things: state.things
-	}
-}
+// function mapStateToProps(state){
+// 	return {
+// 		things: state.things
+// 	}
+// }
 
-export default connect(mapStateToProps, { addThing })(ThingIndex);
+export default connect(null, { addThing })(ThingIndex);
