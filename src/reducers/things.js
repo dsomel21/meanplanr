@@ -1,6 +1,6 @@
 import { ADD_THING } from '../actions/index';
 
-const INITIAL_STATE = { thing : null };
+const INITIAL_STATE = { thing : 'FUCK' };
 
 export default function(state = INITIAL_STATE, action) {
 	switch(action.type){

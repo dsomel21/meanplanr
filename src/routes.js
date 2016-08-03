@@ -8,6 +8,5 @@ import Thingy from './components/test_thing_page';
 export default (
 	<Route path="/" component={App}>
 		<Route path="/test" component={ContainerThingy} />
-		<IndexRoute component={Thingy} />
 	</Route>
 )

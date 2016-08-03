@@ -18,19 +18,24 @@ class ThingIndex extends Component {
 		});
 	}
 
-
-	testThing(){
-		debugger;
-		if (this.props.things.thing){
-			console.log(this.props.things.thing);
-		}
-	}
-
 	onSearchSubmit(e){
 		e.preventDefault();
 		this.props.addThing(this.state.search);
 		this.setState({ search : '' })
-		{this.testThing()}
+	}
+
+	testThing(){
+		if (this.props.things.thing){
+			debugger;
+			<div>
+				{this.props.things.map((x, i) => { return (
+					<li key={i}>
+						{x}
+					</li>
+					);
+				})}
+			</div>
+		}
 	}
 
 	render() {
@@ -38,19 +43,22 @@ class ThingIndex extends Component {
 			<div>
 				<input value={this.state.search} onChange={this.onInputChange.bind(this)} />
 				<button onClick={this.onSearchSubmit.bind(this)} type="button" className="btn btn-primary">Search</button>
+				{this.testThing()}
 			</div>
 		)
 	}
 }
 
-// function mapDispatchToProps(dispatch){
-// 	return bindActionCreators({ addThing }, dispatch);
-// };
+function mapDispatchToProps(dispatch){
+	return {
+		bindActionCreators({ addThing }, dispatch);
+	};
+}
 
-// function mapStateToProps(state){
-// 	return {
-// 		things: state.things
-// 	}
-// }
+function mapStateToProps(state){
+	return {
+		things: state.things
+	}
+}
 
-export default connect(null, { addThing })(ThingIndex);
+export default connect(mapStateToProps, { addThing })(ThingIndex);
