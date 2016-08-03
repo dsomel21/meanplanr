@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { addThing } from '../actions/index';
@@ -6,7 +6,7 @@ import { addThing } from '../actions/index';
 class ThingIndex extends Component {
 
 	constructor(props) {
-		super(props);
+		 super(props);
 		this.state = {
 			search: ''
 		};
@@ -20,22 +20,14 @@ class ThingIndex extends Component {
 
 	onSearchSubmit(e){
 		e.preventDefault();
+		/* Going to dispatch the action */
 		this.props.addThing(this.state.search);
-		this.setState({ search : '' })
+		// this.setState({ search : '' })
 	}
 
-	testThing(){
-		if (this.props.things.thing){
-			debugger;
-			<div>
-				{this.props.things.map((x, i) => { return (
-					<li key={i}>
-						{x}
-					</li>
-					);
-				})}
-			</div>
-		}
+	renderThing(thing, index){
+		debugger;
+		return <div key={index}>{thing}</div>
 	}
 
 	render() {
@@ -43,22 +35,31 @@ class ThingIndex extends Component {
 			<div>
 				<input value={this.state.search} onChange={this.onInputChange.bind(this)} />
 				<button onClick={this.onSearchSubmit.bind(this)} type="button" className="btn btn-primary">Search</button>
-				{this.testThing()}
+				<h1>things</h1>
+				{this.props.things.map(this.renderThing)}
 			</div>
-		)
+		);
 	}
 }
 
-function mapDispatchToProps(dispatch){
-	return {
-		bindActionCreators({ addThing }, dispatch);
-	};
+ThingIndex.propTypes = {
+	things: PropTypes.array.isRequired
+};
+
+function mapDispatchToProps(dispatch) {
+	return bindActionCreators({ addThing }, dispatch);
 }
 
 function mapStateToProps(state){
 	return {
 		things: state.things
-	}
+	};
 }
 
-export default connect(mapStateToProps, { addThing })(ThingIndex);
+/*
+	2 function calls... connect returns a function which immediately calls out container component  
+	Think of it this way: 
+	const connectedStateAndProps = connect(mapStateToProps, mapDispatchToProps);
+	connectedStateAndProps(ThingIndex)
+*/
+export default connect(mapStateToProps, mapDispatchToProps)(ThingIndex);

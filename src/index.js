@@ -8,7 +8,19 @@ import reducers from './reducers';
 import promiseMiddleware from 'redux-promise';
 
 
+// export default function configureStore(initialState) {
+// 	return createStore(
+// 		reducers,
+// 		initialState,
+// 		applyMiddleware(promiseMiddleware())
+// 	);
+// }
+
+// const createStoreWithMiddleware = configureStore();
+
 const createStoreWithMiddleware = applyMiddleware(promiseMiddleware)(createStore);
+
+/* Provider is a higher order component that connects store to containers */
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
