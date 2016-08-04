@@ -22,6 +22,7 @@ class ThingIndex extends Component {
 		e.preventDefault();
 		/* Going to dispatch the action */
 		this.props.addThing(this.state.search);
+		debugger;
 		// this.setState({ search : '' })
 	}
 

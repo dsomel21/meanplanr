@@ -1,5 +1,4 @@
 export const ADD_THING = 'ADD_THING';
-// export const GET_FOOD = 'GET_FOOD';
 
 export function addThing(thing){
 	return {

@@ -6,7 +6,7 @@ export default function(state = [], action) {
 		console.log(action.payload)
 			return [...state, 
 				// thing: action.payload };
-				Object.assign({}, action.payload)
+				Object.assign([], action.payload)
 			];
 		default:
 			return state;
