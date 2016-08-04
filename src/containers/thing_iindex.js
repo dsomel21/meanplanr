@@ -22,8 +22,8 @@ class ThingIndex extends Component {
 		e.preventDefault();
 		/* Going to dispatch the action */
 		this.props.addThing(this.state.search);
-		debugger;
-		// this.setState({ search : '' })
+		// debugger;
+		this.setState({ search : '' })
 	}
 
 	renderThing(thing, index){
@@ -37,7 +37,7 @@ class ThingIndex extends Component {
 				<input value={this.state.search} onChange={this.onInputChange.bind(this)} />
 				<button onClick={this.onSearchSubmit.bind(this)} type="button" className="btn btn-primary">Search</button>
 				<h1>things</h1>
-				{this.props.things.map(this.renderThing)}
+				{this.props.things.map(this.renderThing.bind(this))}
 			</div>
 		);
 	}
