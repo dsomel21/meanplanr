@@ -5,14 +5,15 @@ import { createStore, applyMiddleware } from 'redux';
 import routes from './routes';
 import { Router, browserHistory } from 'react-router'; 
 import reducers from './reducers';
-import promiseMiddleware from 'redux-promise';
+// import promiseMiddleware from 'redux-promise';
+import thunk from 'redux-thunk'
 
 
 export default function configureStore(initialState) {
 	return createStore(
 		reducers,
 		initialState,
-		applyMiddleware()
+		applyMiddleware(thunk)
 	);
 }
 

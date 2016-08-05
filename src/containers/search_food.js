@@ -48,7 +48,10 @@ SearchFood.propTypes = {
 };
 
 function mapDispatchToProps(dispatch) {
-	return bindActionCreators({ getFood }, dispatch);
+	// return bindActionCreators({ getFood }, dispatch);
+	return {
+		getFood: () => getFood(dispatch)	
+	}
 }
 
 function mapStateToProps(state){
