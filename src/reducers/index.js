@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-// import ThingsReducer from './things';
-import things from './things';
+import food from './foodReducer';
+
 
 /* 
 	Calls every child reducer into single state object... 
@@ -9,10 +9,9 @@ import things from './things';
 			"list"'s state will change so much, so ListReducer can manage various changes of state 
 */
 
-/* Just example an for now */
 const rootReducer = combineReducers({
-  // things : ThingsReducer
-  things
+  // food : food
+  food 
 });
 
 export default rootReducer;

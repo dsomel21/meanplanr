@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import SearchThing from '../containers/thing_iindex';
+import FoodSearchBar from '../containers/search_food';
 
 export default class App extends Component {
   render() {
     return (
     	/* Question: How does this have access to this.props.children? */
-      <div>
-      	<SearchThing />
-      </div>
+    	<div>
+		  	{this.props.children}
+    	</div>
     );
   }
 }
