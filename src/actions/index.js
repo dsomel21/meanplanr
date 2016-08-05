@@ -10,20 +10,12 @@ export function getFood(inputFood) {
 	};
 
 	/* Basic Search Method */
-	const URL = `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?query=${inputFood}`;
-	axios.get(URL, config)
-		.then(function(response){
-			return {
-				type: GET_FOOD,
-				payload: response
-			}
+	let URL = `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?query=${inputFood}`;
+	return function (dispatch) {
+		axios.get(URL, config)
+		.then((response) => { dispatch ({
+			type: GET_FOOD,
+			payload: response
+		})
   })
-}
-
-/* TESTING PURPOSES... REMOVE LATER */
-export function doThing(thingy){
-	return {
-		type: DO_THING,
-		payload: thingy
-	}
-}
+};
