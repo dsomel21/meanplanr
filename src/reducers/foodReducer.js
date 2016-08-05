@@ -5,7 +5,7 @@ export default function(state = [], action) {
 		case GET_FOOD:
 			debugger;
 			return [...state, 
-				Object.assign([], action.payload)
+				Object.assign({}, action.payload)
 			];
 		default:
 			return state;

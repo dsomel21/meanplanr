@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getFood } from '../actions/index';
+import { doThing } from '../actions/index';
 
 export default class SearchFood extends Component {
 	
@@ -22,13 +23,16 @@ export default class SearchFood extends Component {
 		e.preventDefault();
 		/* Going to dispatch the action */
 		this.props.getFood(this.state.search);
-		// debugger;
+		// this.props.doThing(this.state.search);
 		this.setState({ search : '' })
 	}
 
 	renderFoodResults(food, index){
-		// debugger;
-		return <div key={index}>{food}</div>
+		return (
+			food.data.results.map((item) => {
+				<div key={index}>{item.title}</div>
+			})
+		)
 	}
 
 	render() {
@@ -44,19 +48,22 @@ export default class SearchFood extends Component {
 }
 
 SearchFood.propTypes = {
-	food: PropTypes.array.isRequired
+	food: PropTypes.array.isRequired,
+	// thing: PropTypes.array.isRequired,
 };
 
 function mapDispatchToProps(dispatch) {
-	// return bindActionCreators({ getFood }, dispatch);
-	return {
-		getFood: () => getFood(dispatch)	
-	}
+	return bindActionCreators({ getFood }, dispatch);
+	// return {
+	// 	getFood: () => getFood(dispatch),
+	// 	// doThing: () => doThing(dispatch)
+	// }
 }
 
 function mapStateToProps(state){
 	return {
-		food: state.food
+		food: state.food,
+		// thing: state.thing
 	};
 }
 

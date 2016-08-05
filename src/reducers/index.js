@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import food from './foodReducer';
+import thing from './doThingreducer';
 
 
 /* 
@@ -11,7 +12,8 @@ import food from './foodReducer';
 
 const rootReducer = combineReducers({
   // food : food
-  food 
+  food,
+  thing,
 });
 
 export default rootReducer;
