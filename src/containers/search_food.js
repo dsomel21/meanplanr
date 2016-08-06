@@ -28,6 +28,7 @@ export default class SearchFood extends Component {
 	}
 
 	renderFoodResults(food, index){
+		debugger;
 		return (
 			food.data.matches.map((item) => { 
 				return <div key={item.id}>{item.recipeName}</div>
@@ -53,11 +54,11 @@ SearchFood.propTypes = {
 };
 
 function mapDispatchToProps(dispatch) {
-	// return bindActionCreators({ getFood }, dispatch);
-	return {
-		getFood: () => getFood(dispatch),
+	return bindActionCreators({ getFood }, dispatch);
+	// return {
+		// getFood: () => getFood(dispatch),
 		// doThing: () => doThing(dispatch)
-	}
+	// }
 }
 
 function mapStateToProps(state){
