@@ -28,7 +28,6 @@ export default class SearchFood extends Component {
 	}
 
 	renderFoodResults(food, index){
-		debugger;
 		return (
 			food.data.matches.map((item) => { 
 				return <div key={item.id}>{item.recipeName}</div>
