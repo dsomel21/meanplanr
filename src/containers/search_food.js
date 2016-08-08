@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getFood } from '../actions/index';
 import { doThing } from '../actions/index';
+import Comp1 from '../components/comp1';
 
-export default class SearchFood extends Component {
+class SearchFood extends Component {
 	
 	constructor(props){
 		super(props);
@@ -28,7 +29,6 @@ export default class SearchFood extends Component {
 	}
 
 	renderFoodResults(food, index){
-		debugger;
 		return (
 			food.data.matches.map((item) => { 
 				return <div key={item.id}>{item.recipeName}</div>
@@ -38,7 +38,8 @@ export default class SearchFood extends Component {
 
 	render() {
 		return (
-			<div>
+			<div id="stuff">
+				<Comp1 />
 				<input value={this.state.search} onChange={this.onInputChange.bind(this)} />
 				<button onClick={this.onSearchSubmit.bind(this)} type="button" className="btn btn-primary">Search</button>
 				<h1>food</h1>
