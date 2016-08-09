@@ -28,22 +28,15 @@ class SearchFood extends Component {
 		this.setState({ search : '' })
 	}
 
-	renderFoodResults(food, index){
-		return (
-			food.data.matches.map((item) => { 
-				return <div key={item.id}>{item.recipeName}</div>
-			})
-		)
-	}
+
 
 	render() {
 		return (
 			<div id="stuff">
-				<Comp1 />
 				<input value={this.state.search} onChange={this.onInputChange.bind(this)} />
 				<button onClick={this.onSearchSubmit.bind(this)} type="button" className="btn btn-primary">Search</button>
 				<h1>food</h1>
-				{this.props.food.map(this.renderFoodResults.bind(this))}
+				<Comp1 />
 			</div>
 		);
 	}
