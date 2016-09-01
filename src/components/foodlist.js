@@ -1,34 +1,44 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+// import { selectFood } from '../actions/index';
 
 class FoodList extends Component {
+
+	// propTypes: {
+	// 	list: React.PropTypes.array.isRequired
+	// }
 
 	constructor(props){
 		super(props);
 	}
 
-	onInputChange(e){
+	renderList(food){
 		debugger;
-	}
-
-	renderSelectedFood(food, index){
-
+		return (
+			<div>{food}</div>
+		)
 	}
 
 	render(){
 		return (
 			<div id="list">
-			<input onChange={this.onInputChange.bind(this)} />
 				<h2>List</h2>
+				{this.props.list.map(this.renderList.bind(this))}
 			</div>
 		)
 	}
 }
 
+// FoodList.propTypes = {
+// 	list: PropTypes.array.isRequired,
+// // 	// thing: PropTypes.array.isRequired,
+// };
+
 function mapStateToProps(state){
 	return {
-		// food: state.food,
-		thing: state.thing
+		list: state.list,
+			// thing: state.thing
+
 	};
 }
 

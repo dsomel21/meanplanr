@@ -25,9 +25,10 @@ const URL = `http://api.yummly.com/v1/api/recipes?_app_id=${_app_id}&_app_key=${
 
 /* ACTION FOR SELECTING FOOD ITEM */
 export function selectFood(item){
+	debugger;
 	return {
 		type: SELECT_FOOD,
-		payload: food
+		payload: item
 	}
 }
 

@@ -6,7 +6,6 @@ import { doThing } from '../actions/index';
 import Comp1 from '../components/comp1';
 import FoodList from '../components/foodlist';
 
-
 class SearchFood extends Component {
 	
 	constructor(props){

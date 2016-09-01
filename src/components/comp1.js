@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { selectFood } from '../actions/index';
 
 class Comp1 extends Component {
-	
+
 	constructor(props){
 		super(props);
 	}
@@ -13,8 +14,8 @@ class Comp1 extends Component {
 	}
 
 	selectedItem(e, item){
-		debugger;
-		this.props.selectFosod(item);
+		// debugger;
+		this.props.selectFood(item);
 	}
 
 	renderFoodResults(food, index){
@@ -36,11 +37,14 @@ class Comp1 extends Component {
 	}
 }
 
+function mapDispatchToProps(dispatch) {
+	return bindActionCreators({ selectFood }, dispatch);
+}
+
 function mapStateToProps(state){
 	return {
 		food: state.food,
-		// thing: state.thing
 	};
 }
 
-export default connect(mapStateToProps, null)(Comp1);
+export default connect(mapStateToProps, mapDispatchToProps)(Comp1);
