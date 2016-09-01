@@ -1,7 +1,8 @@
 import axios from 'axios';
 export const GET_FOOD = 'GET_FOOD';
-export const DELETE_FOOD = 'DELETE_FOOD';
 export const DO_THING = 'DO_THING';
+export const SELECT_FOOD = 'SELECT_FOOD';
+
 
 /* Basic Search Method */
 const _app_id = 'cdbd4c42';
@@ -19,6 +20,14 @@ const URL = `http://api.yummly.com/v1/api/recipes?_app_id=${_app_id}&_app_key=${
 				payload: response
 			})
 		});
+	}
+}
+
+/* ACTION FOR SELECTING FOOD ITEM */
+export function selectFood(item){
+	return {
+		type: SELECT_FOOD,
+		payload: food
 	}
 }
 

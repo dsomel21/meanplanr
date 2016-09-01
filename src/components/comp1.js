@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { selectFood } from '../actions/index';
 
 class Comp1 extends Component {
 	
@@ -11,10 +12,15 @@ class Comp1 extends Component {
 		debugger;
 	}
 
+	selectedItem(e, item){
+		debugger;
+		this.props.selectFosod(item);
+	}
+
 	renderFoodResults(food, index){
 		return (
 			food.data.matches.map((item) => { 
-				return <div key={item.id}>{item.recipeName}</div>
+				return <div onDoubleClick={this.selectedItem.bind(this)}key={item.id}>{item.recipeName}</div>
 			})
 		)
 	}
@@ -25,7 +31,6 @@ class Comp1 extends Component {
 				<input onChange={this.onInputChange.bind(this)} />
 				<h1>TONKA</h1>
 				{this.props.food.map(this.renderFoodResults.bind(this))}
-				------
 			</div>
 		)
 	}

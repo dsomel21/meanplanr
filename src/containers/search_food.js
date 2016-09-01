@@ -4,6 +4,8 @@ import { bindActionCreators } from 'redux';
 import { getFood } from '../actions/index';
 import { doThing } from '../actions/index';
 import Comp1 from '../components/comp1';
+import FoodList from '../components/foodlist';
+
 
 class SearchFood extends Component {
 	
@@ -37,6 +39,7 @@ class SearchFood extends Component {
 				<button onClick={this.onSearchSubmit.bind(this)} type="button" className="btn btn-primary">Search</button>
 				<h1>food</h1>
 				<Comp1 />
+				<FoodList />
 			</div>
 		);
 	}

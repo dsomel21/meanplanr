@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import food from './foodReducer';
+import list from './listReducer';
 import thing from './doThingreducer';
-
 
 /* 
 	Calls every child reducer into single state object... 
@@ -14,6 +14,7 @@ const rootReducer = combineReducers({
   // food : food
   food,
   thing,
+  list,
 });
 
 export default rootReducer;
