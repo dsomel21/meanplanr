@@ -12,7 +12,7 @@ class FoodList extends Component {
 		super(props);
 	}
 
-	renderList(food){
+	renderList(food, index){
 		debugger;
 		return (
 			<div>{food}</div>
