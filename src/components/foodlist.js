@@ -4,10 +4,6 @@ import { connect } from 'react-redux';
 
 class FoodList extends Component {
 
-	// propTypes: {
-	// 	list: React.PropTypes.array.isRequired
-	// }
-
 	constructor(props){
 		super(props);
 	}
@@ -15,7 +11,10 @@ class FoodList extends Component {
 	renderList(food, index){
 		debugger;
 		return (
-			<div>{food}</div>
+			<div>
+			<div>{food.data.name}</div>
+			<div><img src={food.data.images[0].hostedSmallUrl} /></div>
+			</div>
 		)
 	}
 
@@ -23,6 +22,7 @@ class FoodList extends Component {
 		return (
 			<div id="list">
 				<h2>List</h2>
+				<p>LOOK</p>
 				{this.props.list.map(this.renderList.bind(this))}
 			</div>
 		)
@@ -31,14 +31,12 @@ class FoodList extends Component {
 
 // FoodList.propTypes = {
 // 	list: PropTypes.array.isRequired,
-// // 	// thing: PropTypes.array.isRequired,
 // };
 
 function mapStateToProps(state){
 	return {
 		list: state.list,
 			// thing: state.thing
-
 	};
 }
 

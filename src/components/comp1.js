@@ -14,7 +14,7 @@ class Comp1 extends Component {
 	}
 
 	selectedItem(e, item){
-		// debugger;
+		debugger;
 		this.props.selectFood(item);
 	}
 
